@@ -11,148 +11,70 @@
 application will provide users with access to information about different
 movies, directors, and genres. Users will be able to sign up, update their
 personal information, and create a list of their favorite movies.</a>
-    <table>
-      <thead>
-        <tr>
-          <th>Request</th>
-          <th>URL</th>
-          <th>HTTP Method</th>
-          <th>Request Body Data Format</th>
-          <th>Response Body Data Format</th>
-        </tr>
-
-        <tr>
-          <td>Get a list of all movies</td>
-          <td>/movies</td>
-          <td>GET</td>
-          <td>/movies</td>
-          <td>None</td>
-          <td>A JSON Object holding data about all movies</td>
-        </tr>
-
-        <tr class="highlight">
-        <td>Get a list of all genres</td>
-        <td>/genres</td>
-        <td>GET</td>
-        <td>/genres</td>
-        <td>None</td>
-        <td>A JSON Object holdin data about all the genres.</td>
-      </tr>
-
+<table><thead>
       <tr>
-        <td>Get a genre information by genre's name</td>
-        <td>/genres/[Name]</td>
-        <td>GET</td>
-        <td>/genres/:Name</td>
-        <td>None</td>
-        <td>A JSON Object holding data about a certain genre.</td>
+          <th>request</th>
+          <th>url</th>
+          <th>response</th>
       </tr>
-
-      <tr class="highlight">
-        <td>Get a movie data by Title</td>
-        <td>/movies/[Title]</td>
-        <td>GET</td>
-        <td>/mivies/:Title</td>
-        <td>None</td>
-        <td>A JSON Object holdin a certain movie's data</td>
-      </tr>
-
-      <tr>
-        <td>Get movies' data by genre</td>
-        <td>/movies/Genre/[Name]</td>
-        <td>GET</td>
-        <td>/mivies/Genre/:Name</td>
-        <td>None</td>
-        <td>A JSON Object holdin data of movies by certain genre.</td>
-      </tr>
-
-      <tr class="highlight">
-        <td>Get a list of all directors</td>
-        <td>/directors</td>
-        <td>GET</td>
-        <td>/directors</td>
-        <td>None</td>
-        <td>A JASON Object holding data of all directors</td>
-      </tr>
-
-      <tr>
-        <td>Get a director's information by name</td>
-        <td>/directors/[Name]</td>
-        <td>GET</td>
-        <td>/directors/:Name</td>
-        <td>None</td>
-        <td>A JSON Object holding data of a certain director.</td>
-      </tr>
-
-      <tr class="highlight">
-        <td>Add a new user</td>
+  </thead>
+  <tbody>
+    <tr>
+        <td>GET request</td>
+        <td>/</td>
+        <td>return welcome to the site</td>
+    </tr>
+    <tr>
+        <td>GET request</td>
+        <td>/movies</td>
+        <td>Gets all information about all movies</td>
+    </tr>
+    <tr>
+        <td>GET request</td>
+        <td>/movies/:title</td>
+        <td>Gets movie by title</td>
+    </tr>
+    <tr>
+        <td>GET request</td>
+        <td>/movies/genre/:name</td>
+        <td>return info about a specific movie genre</td>
+    </tr>
+    <tr>
+        <td>GET request</td>
+        <td>/movies/director/:name</td>
+        <td>return info about a specific movie director</td>
+    </tr>
+    <tr>
+        <td>GET request</td>
         <td>/users</td>
-        <td>POST</td>
+        <td>Get all users</td>
+    </tr>
+    <tr>
+        <td>POST request</td>
         <td>/users</td>
-        <td>
-          A JSON Object holding data of a user to create.
-          <code><strong>example</strong> <br>
-            { <br>
-            "Username": "testuser2", <br>
-            "Password": "testpassword", <br>
-            "Email": "timpiga@gmail.com" <br>
-        }</code></td>
-        <td>
-          A JSON Object holding data of the new user created with harshed password.
-        <code><strong>example</strong><br>
-          { <br>
-            "Username": "testuser2", <br>
-            "Password": "$2b$10$HaMFG36ubmJmu3ezzajr2u4nTQbR3Fzsn9j3Kjy8.1ECQ2OnzvoaW", <br>
-            "Email": "timpiga@gmail.com", <br>
-            "FavoriteMovies": [], <br>
-            "_id": "617fde60d5bf5b7acdd9e0f6", <br>
-            "__v": 0 <br>
-        }</code></td>
-      </tr>
-
-      <tr>
-        <td>Allow user to update the user's information</td>
-        <td>/users/[Username]</td>
-        <td>PUT</td>
-        <td>/users/:Username</td>
-        <td>
-          A JSON Object holding data where the user want to update.
-          <code><strong>example</strong><br>
-            { <br>
-              "Username": "Testuser", <br>
-              "Password": "newpassword", <br>
-              "Email": "testemailgmail.com" <br>
-          }</code></td>
-          <td>A JSON Object holding the user's updated data.</td>
-      </tr>
-
-      <tr class="highlight">
-        <td>Allow user to add a movie on the favorite list</td>
-        <td>/users/[Username]/movies/[MovieID]</td>
-        <td>POST</td>
-        <td>/users/:Username/movie/:MovieID</td>
-        <td>None</td>
-        <td>A JSON Object holding data of the user including the added favorite movie</td>
-      </tr>
-
-      <tr>
-        <td>Allow user to remove a movie from the favorite list</td>
-        <td>/users/[Username]/movies/[MovieID]</td>
-        <td>DELETE</td>
-        <td>/users/:Username/movie/:MovieID</td>
-        <td>None</td>
-        <td>A text message indicating whether the movie was successfully removed.</td>
-      </tr>
-
-      <tr class="highlight">
-        <td>Allow existing user to deregister</td>
-        <td>/users/[Username]</td>
-        <td>DELETE</td>
-        <td>/users/:Username</td>
-        <td>None</td>
-        <td>A text message indicating whether the user was successfully deleted.</td>
-      </tr>
-      </thead>
+        <td>register to our system</td>
+    </tr>
+    <tr>
+        <td>PUT request</td>
+        <td>/users/:ID</td>
+        <td>Update the persons user info</td>
+    </tr>
+    <tr>
+        <td>POST request</td>
+        <td>/users/:ID/:movieTitle</td>
+        <td>Add a movie to a specific user's profile</td>
+    </tr>
+    <tr>
+        <td>DELETE request</td>
+        <td>/users/:id/unregister</td>
+        <td>Unregister a user from the database</td>
+    </tr>
+    <tr>
+        <td>DELETE request</td>
+        <td>/users/:ID/:deleteFavorite</td>
+        <td>Delete a favorite movie from the users favorites</td>
+    </tr>
+    </tbody>
     </table>
   </body>
 </html>
